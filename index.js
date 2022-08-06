@@ -1,5 +1,5 @@
 const puppeteer = require("puppeteer")
-const { download } = require('./prueba')
+const { download } = require('./Download')
 
 async function start() {
     const browser = await puppeteer.launch()
@@ -16,38 +16,13 @@ async function start() {
             setTimeout(resolve, n * 1000);
         });
     }
+    for (let i = 2; i < urls.length; i++) {
+        if (i != 2) await delay(30);
+        const url_video = urls[i];
+        console.log(url_video);
+        download(url_video);
 
-    // for (let i = 1; i < urls.length/3; i++) {
-    //     if (i != 1) await delay(30);
-    //     console.log('primer for' + i);
-
-    //     const url_video = urls[i];
-    //     console.log(url_video);
-    //     download(url_video);
-
-    // }
-    // for (let i = 11; i < ((urls.length/3) * 2); i++) {
-    //     await delay(30);
-    //     console.log('segnunod' + i);
-    //     const url_video = urls[i];
-    //     console.log(url_video);
-    //     download(url_video);
-
-
-    // }
-    // for (let i = 21; i < urls.length; i++) {
-    //     await delay(30);
-    //     console.log('tercero ' + i);
-    //     const url_video = urls[i];
-    //     console.log(url_video);
-    //     download(url_video);
-
-
-    // }
-    const url_video = 'https://www.youtube.com/watch?v=JEdDaalYx0s&ab_channel=ElAlfaElJefeTV';
-    console.log(url_video);
-    download(url_video);
-    
+    }
     await browser.close()
 }
 
