@@ -1,7 +1,7 @@
-const puppeteer = require("puppeteer")
-const { download } = require('./Download')
+const puppeteer = require('puppeteer');
+const download = require('./Download.js');
 
-async function start() {
+export async function start() {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
     await page.goto("https://www.youtube.com/feed/trending?bp=4gINGgt5dG1hX2NoYXJ0cw%3D%3D")

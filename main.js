@@ -1,19 +1,13 @@
-const ytdl = require('ytdl-core');
-const fs = require('fs')
+const { app, BrowserWindow } = require('electron');
 
-let url = "https://www.youtube.com/watch?v=JEdDaalYx0s";
-
-return new Promise(async (resolve, reject) => {
-    const video = ytdl(url, {
-        filter: function (format) {
-            return format.quality == "hd1080";
-        }
-    });
-
-
-
-    const info = await ytdl.getBasicInfo(url);
-    const title = info.videoDetails.title
-    const file = `./${title}.mp4`;
-    video.pipe(fs.createWriteStream(`${file}`));
-});
+const createWindow = () => {
+    const win = new BrowserWindow({
+      width: 800,
+      height: 600
+    })
+  
+    win.loadFile('index.html')
+  }
+  app.whenReady().then(() => {
+    createWindow()
+  })

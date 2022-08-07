@@ -54,12 +54,12 @@ async function download(url_video) {
     // }
     const titleNoQuotes = title.replace(/['"]+/g, '');
     console.log(titleNoQuotes);
-    if(fs.existsSync(`./${titleNoQuotes}.mp4`)){
+    if (fs.existsSync(`./${titleNoQuotes}.mp4`)) {
         console.log("El archivo EXISTE!");
         return
-        }else{
+    } else {
         console.log("El archivo NO EXISTE!");
-        }
+    }
     const file = `./${titleNoQuotes}.mp4`;
     // Start the ffmpeg child process
     const ffmpegProcess = cp.spawn(ffmpeg, [
