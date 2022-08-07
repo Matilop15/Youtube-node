@@ -1,4 +1,5 @@
-import { start } from './Index.mjs';
+const { start } = require('./Index.mjs');
+
 
 document.getElementById('trigger')
     .addEventListener('click', () => {
